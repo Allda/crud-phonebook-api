@@ -31,3 +31,16 @@ def add_contact():
         (name, surname, phone, address) VALUES(?, ?, ?, ?)''', name, surname, phone, address)
     return redirect("/contacts")
 
+@app.route("/update")
+def update_contact():
+    '''Function is used to update the entry in database.
+    After calling the route with URL arguments user
+    will update the entry in database.'''
+    person_id = request.args.get("id")
+    name = request.args.get("name")
+    surname = request.args.get("surname")
+    phone = request.args.get("phone")
+    db.execute('''UPDATE phonebook SET name = ?, surname = ?, phone = ? 
+        WHERE rowid = ?''', name, surname, phone, person_id)
+    return redirect("/contacts")
+
