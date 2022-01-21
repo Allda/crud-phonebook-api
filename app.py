@@ -53,3 +53,7 @@ def delete_contact():
     db.execute("DELETE FROM phonebook WHERE rowid = ?", (person_id,))
     return redirect("/contacts")
 
+# IP 0.0.0.0 used to match any incoming connection
+# and default port 80
+if __name__ == '__main__':
+    app.run(host="0.0.0.0", port=80)
