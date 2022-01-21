@@ -44,3 +44,12 @@ def update_contact():
         WHERE rowid = ?''', name, surname, phone, person_id)
     return redirect("/contacts")
 
+@app.route("/delete")
+def delete_contact():
+    '''Function is used to delete an entry from databse.
+    User will provide URL argument - ID of contact - 
+    to delete the entry from database.'''
+    person_id = request.args.get("id")
+    db.execute("DELETE FROM phonebook WHERE rowid = ?", (person_id,))
+    return redirect("/contacts")
+
