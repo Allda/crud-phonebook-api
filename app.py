@@ -19,3 +19,15 @@ def read_all():
     contacts = db.execute("SELECT * FROM phonebook")
     return render_template("contacts.html", contacts=contacts)
 
+@app.route("/add")
+def add_contact():
+    '''Function is used to create a new entry in database.
+    User will provide URL arguments to create a new entry.'''
+    name = request.args.get("name")
+    surname = request.args.get("surname")
+    phone = request.args.get("phone")
+    address = request.args.get("address")
+    db.execute('''INSERT INTO phonebook 
+        (name, surname, phone, address) VALUES(?, ?, ?, ?)''', name, surname, phone, address)
+    return redirect("/contacts")
+
