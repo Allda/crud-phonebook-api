@@ -6,7 +6,7 @@ This application serves the purpose as a phone book database. The user can perfo
 - delete the contacts
 
 Application exposes API over HTTP protocol and the user can manipulate and read the data by calling respective route or input the data into URL arguments.
-- Application can be also run inside of a container. Example command once the container is built: `docker run app_name -d -p 80:80` if we want to run it in detached mode. It will listen on port 80, so we do not have to include it once the container was initiated.
+- Application can be also run inside of a container. Example command once the container is built: `docker run -d -p 80:80 image_name` if we want to run it in detached mode. It will listen on port 80, so we do not have to include it once the container was initiated.
  
 ## Functions of the application:
 ### READ function:
