@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <h1>All contacts</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Contact ID</th>
+                <th>First name</th>
+                <th>Second name</th>
+                <th>Phone number</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>        
+            {% for contact in contacts %}
+                <tr>
+                    <td>{{ contact.contact_id }}</td>
+                    <td>{{ contact.name }}</td>
+                    <td>{{ contact.surname }}</td>
+                    <td>{{ contact.phone }}</td>
+                    <td>{{ contact.address }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
